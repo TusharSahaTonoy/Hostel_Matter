@@ -1,0 +1,104 @@
+@font-face
+{
+    font-family: Inconsolata-Bold;
+    src:url(fonts/Inconsolata-Bold-manu.ttf);
+}
+
+@font-face
+{
+    font-family:SourceSansPro-Regular;
+    src:url(fonts/SourceSansPro-Regular_text.ttf);
+}
+
+body
+{
+    font-family: SourceSansPro-Regular;
+    background: url(image/books.jpg) no-repeat content-box;
+}
+
+
+h1
+{
+    
+    color: #ffffff;
+    background: #1193e975;
+    text-align: center;
+    padding:8px;
+}
+
+
+#nav 
+{
+    width:20%;
+    height: 100%;
+    float: left;
+    color:#fff;
+    background: #5333147a;
+}
+
+
+#nav ul li
+{
+    list-style: none;
+    padding: 10px;
+    margin:3px;
+    border:1px solid;
+    display:block;
+}
+#nav ul li:hover
+{
+
+    background: #fff;
+}
+
+#nav ul li:hover ~ a
+{
+    color: black;
+}
+
+
+#nav ul li a
+{
+    color: #fff;
+    padding: 3px 90px 3px 10px; 
+    text-decoration:none;
+    font-size: 20px;
+}
+
+#nav ul li a.longline
+{
+    padding: 3px 20px 3px 10px;
+}
+
+#nav ul li a:hover
+{
+    color: black;
+}
+
+#container
+{
+    width:77%;
+    height: 100%;
+    float: right;
+    position:relative;
+    right:12px;
+}
+
+
+#main_content
+{
+    color:#fff;
+    background: rgba(48, 43, 43, 0.486);
+    margin:20px 20px 0 20px ;
+    border-radius: 10px;
+    box-shadow:0px 8px 15px rgba(0, 0, 0, 0.8);
+}
+
+#main_content h2
+{
+    color:rgb(255, 255, 255);
+    text-align:center;
+    padding:10px;
+}
+
+
