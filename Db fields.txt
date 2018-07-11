@@ -1,0 +1,39 @@
+
+The tables of datebase:
+
+Student
+	id 
+	name
+	phone
+	permanet address
+	main guardian name
+	main guardian number
+	relation
+	local guardian name
+	local guardian number
+	relation
+	
+Building 
+	id
+	name
+	no
+
+room
+	id
+	bid
+	roomno
+
+student hostel info
+	student id
+	room id
+	building id
+
+staff
+	id
+	name
+	position
+
+Add student
+	id
+	date
+	student id;
