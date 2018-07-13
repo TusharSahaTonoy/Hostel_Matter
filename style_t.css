@@ -26,6 +26,19 @@ a
 {
     text-decoration:none;
 }
+
+button:hover
+{
+    cursor: pointer;
+}
+
+form
+{
+    width: 50%;
+    height: 50%;
+    background: #1314148a;
+}
+
 #sidebar
 {
     width:20%;
@@ -51,6 +64,27 @@ a
 #sidebar #nav ul
 {
     list-style:none;
+    text-align: center;
+}
+
+#sidebar #nav ul li
+{
+    background: #123432;
+    transition: .35s;
+}
+#sidebar #nav ul button
+{
+    color:#fff;
+    background: none;
+    font-size: 120%;
+    border:none;
+    padding: 10px 35%;
+    
+    outline: none;
+}
+#sidebar #nav ul li:hover
+{
+    background: rgb(62, 112, 124);
 }
 
 #main_content
