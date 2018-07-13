@@ -13,8 +13,8 @@
 body
 {
     font-family: SourceSansPro-Regular;
-    background: url(image/books.jpg) no-repeat content-box;
-    
+    background-image: url("image/books.jpg");
+    background-attachment: fixed;
 }
 
 *
@@ -38,7 +38,7 @@ button:hover
 {
     width:20%;
     height:100%;
-    
+    position: fixed;
     float: left;
 }
 
@@ -99,6 +99,7 @@ button:hover
     background:#fbfeff7c;
     border-bottom: 3px solid #ffffffa2;
     border-radius:10px;
+    
 }
 #form_content
 {
