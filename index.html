@@ -1,12 +1,30 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="style_t.css">
-    <link rel="stylesheet" type="text/css" href="styleP.css">
+
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <link href="style_t.css" rel="stylesheet" type="text/css">
+
+    <style>
+        @font-face {
+            font-family: Inconsolata-Bold;
+            src: url(fonts/Inconsolata-Bold-manu.ttf);
+        }
+
+        @font-face {
+            font-family: SourceSansPro-Regular;
+            src: url(fonts/SourceSansPro-Regular_text.ttf);
+        }
+
+        body {
+            font-family: SourceSansPro-Regular;
+            background-image: url("image/books.jpg");
+            background-attachment: fixed;
+        }
+    </style>
 </head>
 
 <body style="background-attachment: fixed;">
@@ -16,9 +34,13 @@
         </div>
         <div id="nav">
             <ul>
-            <li><button id="btn_home">Home</button></li>
-            <li><button id="btn_student">student</button></li>
-        </ul>
+                <li>
+                    <button id="btn_home">Home</button>
+                </li>
+                <li>
+                    <button id="btn_student">student</button>
+                </li>
+            </ul>
         </div>
     </div>
     <div id="main_content">
@@ -26,9 +48,10 @@
             <h1>Hostel Matter</h1>
         </div>
         <div id="form_content">
-            
+            <div id="change"></div>
         </div>
     </div>
 </body>
 <script src="js/loader.js"></script>
+
 </html>
