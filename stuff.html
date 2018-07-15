@@ -1,0 +1,23 @@
+
+<div id="manu">
+        <div class="nav nav-tabs nav-fill">
+            <a id="stuff_index" class="nav-item nav-link active btn" data-toggle="tab" aria-selected="true">Stuff List</a>
+            <a id="stuff_add" class="nav-item nav-link btn" data-toggle="tab" aria-selected="false">Add Stuff</a>
+        </div>
+    </div>
+    
+    <div id="content">
+        <div id="stuff_change"></div>
+    </div>
+    
+    <script>
+        $("#stuff_change").load("blank.html");
+        
+        $("#stu_index").click(function () {
+            $("#stuff_change").load("blank.html");
+        });
+        $("#stuff_add").click(function () {
+            $("#stuff_change").load("add_stuff.html");
+        });
+        
+    </script>

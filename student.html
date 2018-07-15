@@ -1,9 +1,9 @@
 
 <div id="manu">
 	<div class="nav nav-tabs nav-fill">
-		<a id="stu_index" class="nav-item nav-link active" data-toggle="tab" aria-selected="true">Student List</a>
-		<a id="stu_regi" class="nav-item nav-link " data-toggle="tab" aria-selected="false">Registration</a>
-		<a id="stu_edit" class="nav-item nav-link" data-toggle="tab"  aria-selected="false">Contact</a>
+		<a id="stu_index" class="nav-item nav-link active btn" data-toggle="tab" aria-selected="true">Student List</a>
+		<a id="stu_regi" class="nav-item nav-link btn" data-toggle="tab" aria-selected="false">Registration</a>
+		<a id="stu_edit" class="nav-item nav-link btn" data-toggle="tab"  aria-selected="false">Contact</a>
 	</div>
 </div>
 
@@ -12,11 +12,12 @@
 </div>
 
 <script>
-	$(document).ready(function () {
-		$("#stu_regi").click(function () {
-			$("#stu_change").load("student_registration.html");
+	$("#stu_change").load("blank.html");
 
-		});
-		return false;
+	$("#stu_regi").click(function () {
+        $("#stu_change").load("student_registration.html");
+	});
+	$("#stu_index").click(function () {
+        $("#stu_change").load("blank.html");
 	});
 </script>
