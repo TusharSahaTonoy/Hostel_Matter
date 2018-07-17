@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <link href="style_t.css" rel="stylesheet" type="text/css">
+    <link href="css/style_t.css" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -22,6 +22,7 @@
             font-family: SourceSansPro-Regular;
             background-image: url("image/books.jpg");
             background-attachment: fixed;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -29,7 +30,9 @@
 <body style="background-attachment: fixed;">
     <div id="sidebar">
         <div id="info">
-
+            <h3>Hostel Matter</h3>
+            <h5>By intefel</h5>
+            <button class="btn btn-outline-dark btn-sm" aria-pressed="true">About</button>
         </div>
         <div id="nav">
             <ul>
@@ -45,12 +48,15 @@
                 <li>
                     <button id="btn_stuff">Stuff</button>
                 </li>
+                <li>
+                    <button id="btn_room">Room</button>
+                </li>
             </ul>
         </div>
     </div>
     <div id="main_content">
         <div id="header">
-            <h1>Hostel Matter</h1>
+            <h1>Hostel Name Here</h1>
         </div>
         <div id="form_content">
             <div id="change"></div>

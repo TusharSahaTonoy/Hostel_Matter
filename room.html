@@ -1,0 +1,21 @@
+<div id="manu">
+    <div class="nav nav-tabs nav-fill">
+        <a id="room_index" class="nav-item nav-link active btn" data-toggle="tab" aria-selected="true">Rooms</a>
+        <a id="room_regi" class="nav-item nav-link btn" data-toggle="tab" aria-selected="false">Add Room</a>
+    </div>
+</div>
+
+<div id="content">
+    <div id="room_change"></div>
+</div>
+
+<script>
+    $("#room_change").load("blank.html");
+
+    $("#room_index").click(function () {
+        $("#room_change").load("blank.html");
+    });
+    $("#room_regi").click(function () {
+        $("#room_change").load("add_room.html");
+    });
+</script>

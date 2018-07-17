@@ -22,4 +22,9 @@ $(document).ready(function () {
             $("#change").load("stuff.html");
         }
     );
+    $("#btn_room").click(
+        function () {
+            $("#change").load("room.html");
+        }
+    );
 });
