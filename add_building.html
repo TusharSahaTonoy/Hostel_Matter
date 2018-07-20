@@ -1,17 +1,34 @@
-<form action="/action_page.php">
-  <div class="jumbotron">
-    <div class="form-group">
-      <div class="form-group">
-        <label for="name">Buliding Name:</label>
-        <input type="Name" class="form-control" id="Name" placeholder="Enter Building Name" name="name" autocomplete="off">
+<form method="POST">
+    <div class="jumbotron">
         <div class="form-group">
-          <label for="name">Buliding Number:</label>
-          <input type="Number" class="form-control" id="Number" placeholder="Enter Building Number" name="Number">
+            <label>Buliding Name:</label>
+            <input class="form-control" id="b_name" name="b_name" placeholder="Enter Building Name">
+            <label >Buliding Number:</label>
+            <input class="form-control" id="b_name" name="b_no" placeholder="Enter Building Number">
         </div>
-
-      </div>
+        <button id="btn_add_build" class="btn btn-primary btn-lg btn-block">Submit</button>
     </div>
-    <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
-  </div>
-
+  
 </form>
+
+<script>
+  $("#btn_add_build").click(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "add_building.php",
+            method: "post",
+            data: $("form").serialize(),
+
+            success: function (mgs) {
+                if(mgs=="Insert successful")
+                {
+                  alert("Inserted");
+                  $("#b_name").val("");
+                  $("#b_no").val("");
+                }
+                else
+                  alert("Failed");
+            }
+        });
+    });
+</script>

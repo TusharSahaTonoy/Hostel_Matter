@@ -22,6 +22,8 @@ room
 	id
 	bid
 	roomno
+	capacity
+	total member
 
 student hostel info
 	student id
@@ -32,6 +34,7 @@ staff
 	id
 	name
 	position
+	building position
 
 Add student
 	id
