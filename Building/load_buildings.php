@@ -25,7 +25,7 @@ while($row=mysqli_fetch_array($result))
         <td>" . $row['b_name'] . "</td>
         <td>" . $row['b_no'] . "</td>
         <td><button id='".$row['id'] ."' class='b_update btn btn-warning' data-toggle='modal' data-target='#edit_modal'>Update</button></td>
-        <td><button id='".$row['id'] ."' class='b_delete btn btn-danger' data-toggle='modal' data-target='#myModal'>Delete</button></td>
+        <td><button id='".$row['id'] ."' class='b_delete btn btn-danger' data-toggle='modal' data-target='#delete_modal'>Delete</button></td>
     </tr>";
 }
 echo "</tbody>"

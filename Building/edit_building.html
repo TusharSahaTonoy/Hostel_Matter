@@ -1,0 +1,58 @@
+<!-- Modal -->
+<div class="modal fade" id="edit_modal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Building</h4>
+            </div>
+            <form method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="hidden" id="b_id_edit" name="b_id_edit">
+                        <label for="b_name_edit">Buliding Name:</label>
+                        <input class="form-control" id="b_name_edit" name="b_name_edit" value="" required="required" placeholder="Enter Building Name">
+                        <label for="b_no_edit">Buliding Number:</label>
+                        <input class="form-control" id="b_no_edit" name="b_no_edit" value="" placeholder="Enter Building Number">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="btn_b_edit" class="btn btn-success">Save</button>
+                    <button type="button" id="btn_close_modal" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<script>
+    //update post or save
+    $("#btn_b_edit").click(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "Building/edit_building.php",
+            method: "POST",
+            data: $("form").serialize(),
+            dataType: "json",
+            success: function (data) {
+                if (data == 1) {
+                    $("#btn_close_modal").click();
+                    alert("Edit Successfull");
+                    
+                    $.ajax({
+                        url: "Building/load_buildings.php",
+                        dataType: "html",
+
+                        success: function (mgs) {
+                            $("#result").html(mgs);
+                        }
+                    });
+                }
+                else {
+                    alert("Somethinh wrong");
+                }
+            }
+        });
+    });
+</script>

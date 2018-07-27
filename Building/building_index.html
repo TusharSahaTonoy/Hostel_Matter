@@ -1,0 +1,59 @@
+
+<div id="edit_building"></div>
+<div id="delete_building"></div>
+<table id="result" class="table table-bordered" >
+
+<script>
+
+    $("#edit_building").load("Building/edit_building.html");
+    $("#delete_building").load("Building/delete_building.html");
+
+    $.ajax({
+        url: "Building/load_buildings.php",
+        dataType: "html",
+
+        success: function (mgs) {
+            $("#result").html(mgs);
+        }
+    });
+    var b_id;
+    //update get
+    $(document).on("click",".b_update",function()
+    {
+        b_id = $(this).attr("id");
+
+        $("#b_id_edit").val(b_id);
+        $.ajax({
+            url:"Building/edit_building.php",
+            method:"GET",
+            data: {b_id:b_id},
+            dataType:"json",
+            success:function(data)
+            {
+                $("#b_name_edit").val(data.b_name);
+                $("#b_no_edit").val(data.b_no);
+            }
+            
+        });
+    });
+
+    
+    $(document).on("click",".b_delete",function()
+    {
+        b_id = $(this).attr("id");
+        $("#b_id_del").val(b_id);
+        $.ajax({
+            url:"Building/delete_building.php",
+            method:"GET",
+            data: {b_id:b_id},
+            dataType:"json",
+            success:function(data)
+            {
+                $("#b_name_del").val(data.b_name);
+                $("#b_no_del").val(data.b_no);
+            }
+            
+        });
+    });
+
+</script>

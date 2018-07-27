@@ -1,0 +1,21 @@
+<div id="manu">
+    <div class="nav nav-tabs nav-fill">
+        <a id="build_index" class="nav-item nav-link active btn" data-toggle="tab" aria-selected="true">Buildings</a>
+        <a id="build_add" class="nav-item nav-link btn" data-toggle="tab" aria-selected="false">Add Building</a>
+    </div>
+</div>
+
+<div id="content">
+    <div id="build_change"></div>
+</div>
+
+<script>
+    $("#build_change").load("Building/building_index.html");
+
+    $("#build_index").click(function () {
+        $("#build_change").load("Building/building_index.html");
+    });
+    $("#build_add").click(function () {
+        $("#build_change").load("Building/add_building.html");
+    });
+</script>

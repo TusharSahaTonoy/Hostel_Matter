@@ -11,10 +11,7 @@ if(isset($name)&&isset($no))
     $query = "Insert into building_info values(null,'$name','$no')";
     $result=mysqli_query($con,$query);
 
-    if($result)
-        echo "Insert successful";
-    else
-        echo "Not inserted";
+    echo $result;
 }
 else
     echo "name and no not set";

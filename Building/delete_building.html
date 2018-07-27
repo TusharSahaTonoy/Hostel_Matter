@@ -1,0 +1,62 @@
+<!-- Modal -->
+<div class="modal fade" id="delete_modal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Delete Building</h4>
+            </div>
+            <form method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <h4>Are you sure delete this building record ?</h4>
+                        <input hidden id="b_id_del" name="b_id_del">
+                        <label for="b_name_del">Buliding Name:</label>
+                        <input class="form-control" id="b_name_del" name="b_name_del" readonly>
+                        <label for="b_no_del">Buliding Number:</label>
+                        <input class="form-control" id="b_no_del" name="b_no_del" readonly>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="btn_b_del" class="btn btn-warning">Yes</button>
+                    <button type="button" id="btn_close_del" class="btn btn-default" data-dismiss="modal">No</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<script>
+        //Delete
+        $("#btn_b_del").click(function (event) {
+            event.preventDefault();
+            var b_id_del = $("#b_id_del").val();
+            
+            $.ajax({
+                url: "Building/delete_building.php",
+                method: "POST",
+                data: {b_id:b_id_del},
+                dataType: "json",
+                success: function (data) {
+                    if (data == 1) {
+                        $("#btn_close_del").click();
+                        alert("Delete Successfull");
+                        
+                        $.ajax({
+                            url: "Building/load_buildings.php",
+                            dataType: "html",
+    
+                            success: function (mgs) {
+                                $("#result").html(mgs);
+                            }
+                        });
+                    }
+                    else {
+                        alert("Somethinh wrong");
+                    }
+                }
+            });
+        });
+    </script>

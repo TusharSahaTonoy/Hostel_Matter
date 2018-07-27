@@ -15,16 +15,15 @@
   $("#btn_add_build").click(function (event) {
         event.preventDefault();
         $.ajax({
-            url: "add_building.php",
+            url: "Building/add_building.php",
             method: "post",
             data: $("form").serialize(),
 
             success: function (mgs) {
-                if(mgs=="Insert successful")
+                if(mgs==1)
                 {
-                  alert("Inserted");
-                  $("#b_name").val("");
-                  $("#b_no").val("");
+                  alert("Insert successful");
+                  $("#build_index").click();
                 }
                 else
                   alert("Failed");
