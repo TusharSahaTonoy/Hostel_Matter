@@ -1,55 +1,75 @@
-<form name="stu_form" method="POST">
-    <h2>Student Registration form</h2>
-	<div class="jumbotron">
-
-	  <div class="form-group">
-		<label for="stu_id">ID:</label>
-		<label id="stu_id">NULL</label>
-	  </div>
-	  <div class="form-group">
-		<label for="name">Name:</label>
-		<input type="Name" class="form-control" id="Name" placeholder="Enter Name" name="name" autocomplete="off">
-	  </div>
-	  <div class="form-group">
-		<label for="Phone">Phone:</label>
-		<input type="Phone" class="form-control" id="Phone" placeholder="Enter Phone Number" name="Phone">
-	  </div>
-	  <div class="form-group">
-		<label for="Parmarent Adress">Pamarent Adress:</label>
-		<input type="Pamarent Adress" class="form-control" id="Pamarent Adress" placeholder="Enter Pamarent Adress" name="Pamarent Adress">
-
-	  </div>
-
-	</div>
-	<div class="jumbotron">
-	  <div class="form-group">
-		<label for="Main Guradin Name">Main Guradin Name:</label>
-		<input type="Main Guradin Name class" class="form-control" id="Main Guradin Name" placeholder="Enter Main Guradin Name" name="Main Guradin Name">
-
-		<label for="Main Guradin Phone Number">Main Guradin Phone Number:</label>
-		<input type="Main Guradin Phone Number " class="form-control" id="Main Guradin Phone Number" placeholder="Enter Main Guradin Phone Number"
-		  name="Main Guradin Phone Number">
-          
-        <label for="Main Guradin Relation">Main Guradin Relation:</label>
-		<input type="Main Guradin Relation" class="form-control" id="Main Guradin Relation" placeholder="Main Guradin Relation"
-		  name="Main Guradin Relation">  
-
-	  </div>
-	  
-	</div>
-
-	<div class="jumbotron">
-	  <div class="form-group">
-		<label for="Local Guradin Name">Local Guradin Name:</label>
-		<input type="Local Guradin Name" class="form-control" id="Local Guradin Name" placeholder="Enter LOcal Guradin Name" name="Local Guradin Name">
-
-		<label for="Local Guradin Phone Number">Local Guradin Phone Number:</label>
-		<input type="Local Guradin Phone Number " class="form-control" id="Local Guradin Phone Number" placeholder="Enter Local Guradin Phone Number"
-		  name="Local Guradin Phone Number">
-         
-          <label for="Local Guradin Relation">Main Guradin Relation:</label>
-		<input type="Local Guradin Relation" class="form-control" id="Local Guradin Relation" placeholder="Local Guradin Relation"
-		  name="Local Guradin Relation"> 
-	  </div>
-	 <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+<form id="add_stu_form" method="POST" autocomplete="on">
+	<h2>Student Registration form</h2>
+	<div class="container">
+		<div class="jumbotron">
+			<div class="form-group">
+				<label for="name">Name: </label>
+				<input class="form-control" name="name" >
+			</div>
+			<div class="form-group">
+				<label for="phone">Phone:</label>
+				<input class="form-control" name="phone"  >
+			</div>
+			<div class="form-group">
+				<label for="p_address">Pamarent Address:</label>
+				<input class="form-control" name="p_address">
+			</div>
+		
+		</div>
+		<div class="jumbotron">
+			<div class="form-group">
+				<label for="m_guardian_name">Main Guardian Name:</label>
+				<input class="form-control" name="m_guardian_name">
+		
+				<label for="m_phone">Main Guardian Phone Number:</label>
+				<input class="form-control" name="m_phone">
+		
+				<label for="m_relation">Main Guradin Relation:</label>
+				<input class="form-control" name="m_relation">
+		
+			</div>
+		
+		</div>
+		
+		<div class="jumbotron">
+			<div class="form-group">
+				<label for="l_guardian_name">Local Guardian Name:</label>
+				<input class="form-control" name="l_guardian_name">
+		
+				<label for="l_phone">Local Guardian Phone Number:</label>
+				<input class="form-control" name="l_phone" >
+		
+				<label for="l_relation">Local Guradin Relation:</label>
+				<input class="form-control" name="l_relation" >
+		
+			</div>
+			<button class="btn btn-primary btn-lg btn-block" id="add_stu" name="add_stu">Save</button>
+		</div>
+		
+	</div>	
 </form>
+
+<script>
+
+	$("#add_stu").click(function(event){
+		event.preventDefault();
+		$.ajax({
+			url:"student/add_student.php",
+			method:"POST",
+			data: $("#add_stu_form").serialize(),
+
+			success:function(mgs){
+				if(mgs==1)
+				{
+					alert("Insert successful");
+					$("#stu_index").click();
+				}
+				else
+				{
+					alert("Something wrong");
+				}
+			}
+		});
+	})
+
+</script>

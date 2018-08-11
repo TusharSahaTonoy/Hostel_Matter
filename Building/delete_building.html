@@ -10,7 +10,7 @@
             <form method="POST">
                 <div class="modal-body">
                     <div class="form-group">
-                        <h4>Are you sure delete this building record ?</h4>
+                        <h5>Are you sure delete this building record ?</h5>
                         <input hidden id="b_id_del" name="b_id_del">
                         <label for="b_name_del">Buliding Name:</label>
                         <input class="form-control" id="b_name_del" name="b_name_del" readonly>
@@ -33,7 +33,7 @@
         $("#btn_b_del").click(function (event) {
             event.preventDefault();
             var b_id_del = $("#b_id_del").val();
-            
+
             $.ajax({
                 url: "Building/delete_building.php",
                 method: "POST",

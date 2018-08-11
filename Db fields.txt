@@ -12,7 +12,12 @@ Student
 	local guardian name
 	local guardian number
 	relation
-	
+
+student hostel info
+	student id
+	room id
+	building id
+
 Building 
 	id
 	name
@@ -25,10 +30,7 @@ room
 	capacity
 	total member
 
-student hostel info
-	student id
-	room id
-	building id
+
 
 staff
 	id

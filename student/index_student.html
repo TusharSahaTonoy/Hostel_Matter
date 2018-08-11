@@ -1,0 +1,76 @@
+
+<div id="edit_student"></div>
+<div id="delete_student"></div>
+
+<table class="table table-bordered" id="result" ></table>
+
+<script>
+    $("#edit_student").load("student/edit_student.html");
+    $("#delete_student").load("student/delete_student.html");
+
+    $.ajax({
+        url:"student/load_student.php",
+        dataType: "html",
+        
+        success:function(mgs)
+        {
+            $("#result").html(mgs);
+        }
+    });
+
+    var s_id_edit;
+    $(document).on('click','.s_update',function()
+    {
+        s_id = $(this).attr("id");
+        $("#s_id_edit").val(s_id);
+        $.ajax({
+            url:"student/edit_student.php",
+            method:"GET",
+            data: {s_id:s_id},
+            dataType:"json",
+            success:function(data)
+            {
+                $('#s_edit_form [name="name"] ').val(data.name);
+                $('#s_edit_form [name="phone"] ').val(data.phone);
+                $('#s_edit_form [name="p_address"] ').val(data.p_address);
+                $('#s_edit_form [name="m_guardian_name"] ').val(data.m_guardian_name);
+                $('#s_edit_form [name="m_phone"] ').val(data.m_phone);
+                $('#s_edit_form [name="m_relation"] ').val(data.m_relation);
+                $('#s_edit_form [name="l_guardian_name"] ').val(data.l_guardian_name);
+                $('#s_edit_form [name="l_phone"] ').val(data.l_phone);
+                $('#s_edit_form [name="l_relation"] ').val(data.l_relation);
+            }
+            
+        });
+    });
+
+    $(document).on('click','.s_delete',function()
+    {
+        s_id = $(this).attr("id");
+        $("#s_id_delete").val(s_id);
+        $.ajax({
+            url:"student/delete_student.php",
+            method:"GET",
+            data: {s_id:s_id},
+            dataType:"JSON",
+            success:function(data)
+            {
+                $('#s_delete_form [name="name"] ').val(data.name);
+                $('#s_delete_form [name="phone"] ').val(data.phone);
+                $('#s_delete_form [name="p_address"] ').val(data.p_address);
+                $('#s_delete_form [name="m_guardian_name"] ').val(data.m_guardian_name);
+                $('#s_delete_form [name="m_phone"] ').val(data.m_phone);
+                $('#s_delete_form [name="m_relation"] ').val(data.m_relation);
+                $('#s_delete_form [name="l_guardian_name"] ').val(data.l_guardian_name);
+                $('#s_delete_form [name="l_phone"] ').val(data.l_phone);
+                $('#s_delete_form [name="l_relation"] ').val(data.l_relation);
+            },
+            error: function(xhr, resp, text) {
+                    alert("Error Occur");
+                    alert("1 "+xhr+" "+"2 "+resp+" "+"3 "+ text);
+                }
+            
+            
+        });
+    });
+</script>

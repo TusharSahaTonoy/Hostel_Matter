@@ -1,0 +1,99 @@
+<div class="modal fade" id="delete_student_modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form id="s_delete_form" method="POST">
+                    <div class="modal-body">
+                        <h2>Do you want to remove this student?</h2>
+                        <div class="container">
+                            <div class="jumbotron">
+                                <input type="hidden" id="s_id_delete" name="id">
+                                <div class="form-group">
+                                    <label for="name">Name: </label>
+                                    <input class="form-control" name="name" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone:</label>
+                                    <input class="form-control"  name="phone" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="p_address">Pamarent Address:</label>
+                                    <input class="form-control"  name="p_address" readonly>
+                                </div>
+    
+                            </div>
+                            <div class="jumbotron">
+                                <div class="form-group">
+                                    <label for="m_guardian_name">Main Guardian Name:</label>
+                                    <input class="form-control" id="m_guardian_name" name="m_guardian_name" readonly>
+    
+                                    <label for="m_phone">Main Guardian Phone Number:</label>
+                                    <input class="form-control"  name="m_phone" readonly>
+    
+                                    <label for="m_relation">Main Guradin Relation:</label>
+                                    <input class="form-control"  name="m_relation" readonly>
+    
+                                </div>
+    
+                            </div>
+    
+                            <div class="jumbotron">
+                                <div class="form-group">
+                                    <label for="l_guardian_name">Local Guardian Name:</label>
+                                    <input class="form-control"  name="l_guardian_name" readonly>
+    
+                                    <label for="l_phone">Local Guardian Phone Number:</label>
+                                    <input class="form-control"  name="l_phone" readonly>
+    
+                                    <label for="l_relation">Local Guradin Relation:</label>
+                                    <input class="form-control"  name="l_relation" readonly>
+    
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="btn_s_delete" class="btn btn-warning">Yes</button>
+                        <button type="button" id="btn_close_delete" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+    
+        </div>
+    </div>
+    <script>
+        //update post or save
+        $("#btn_s_delete").click(function (event) {
+            event.preventDefault();
+            var s_id=$("#s_id_delete").val();
+            $.ajax({
+                url: "student/delete_student.php",
+                method: "POST",
+                data: {s_id:s_id},
+                success: function (data) {
+                    if (data == 1) {
+                        $("#btn_close_delete").click();
+                        alert("Delete Successfull");
+    
+                        $.ajax({
+                            url: "student/load_student.php",
+    
+                            success: function (mgs) {
+                                $("#result").html(mgs);
+                            }
+                        });
+                    }
+                    else {
+                        alert("Somethinh wrong");
+                    }
+                },
+                error: function(xhr, resp, text) {
+                        alert("Error Occur");
+                        alert("1 "+xhr+" "+"2 "+resp+" "+"3 "+ text);
+                    }
+            });
+        });
+    
+    </script>
